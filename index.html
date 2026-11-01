@@ -163,6 +163,11 @@
     .contact { background: var(--navy); color: var(--white); }
     .contact h2 { color: var(--white); }
     .contact-lead { margin: -16px 0 40px; }
+    .contact-intro { display: grid; grid-template-columns: 1fr 220px; gap: 32px; align-items: end; max-width: 820px; margin-bottom: 40px; }
+    .contact-intro .contact-lead { margin: -16px 0 0; }
+    .contact-chara { display: block; justify-self: end; }
+    .contact-chara img { display: block; width: 200px; height: auto; filter: drop-shadow(0 16px 28px rgba(0,0,0,.45)); }
+    @media (max-width: 640px) { .contact-intro { grid-template-columns: 1fr; gap: 16px; } .contact-chara { justify-self: center; order: -1; } .contact-chara img { width: 150px; } }
     .contact-menu { list-style: none; margin: 0 0 16px; padding: 0; }
     .contact-menu li { padding-left: 1.4em; text-indent: -1.4em; font-weight: 700; margin: 4px 0; }
     .contact-menu li::before { content: "＊"; color: var(--orange); }
@@ -312,13 +317,13 @@
               <li>静岡県商工会連合会ビジネスパワーアップ支援事業者</li>
             </ul>
             <p>静岡県島田市在住。<br>高校卒業後、セミプロサッカー選手として5年間活躍（学生時代に世界大会出場経験あり）。</p>
-            <p>現在は、会員数40,000名を超える日本国内最大級のAI活用コミュニティ「SHIFT AI」で認定講師を務める。これまで全国6,000名以上の生成AI活用をサポート。</p>
+            <p>現在は、会員数40,000名を超える日本国内最大級のAI活用コミュニティ「SHIFT AI」で認定講師を務める。<br>これまで全国6,000名以上の生成AI活用をサポート。</p>
             <p class="roles-lead">また、</p>
             <ul class="roles">
               <li>静岡県内5市町の生涯学習講師</li>
               <li>静岡県商工会連合会 ビジネスパワーアップ支援事業者</li>
             </ul>
-            <p>として、地域住⺠・地方自治体・学生への生成AI活用講座も実施。<br>2026年11月からは中小企業向けのAI導入もスタート予定。</p>
+            <p>として、地域住民や地方自治体を対象とした生成AI活用講座に加え、学生向けの生成AI教育・授業にも幅広く取り組んでいます。<br>2026年11月からは中小企業向けのAI導入もスタート予定。</p>
             <p class="motto">「生成AIで人生に余白を生み出し、誰もが大切な人と豊かな時間を過ごせる社会へ」をモットーに、活動中。</p>
           </div>
         </div>
@@ -794,6 +799,7 @@
       <div class="container">
         <p class="label label-on-dark">Contact</p>
         <h2>連絡先</h2>
+        <div class="contact-intro">
         <div class="contact-lead">
           <ul class="contact-menu">
             <li>個人 / 団体向けの生成AI講座・セミナー・勉強会</li>
@@ -801,6 +807,8 @@
           </ul>
           <p>それぞれの目的に合わせた内容でサポートいたします！<br>まずは、お気軽にご相談ください！</p>
           <p class="contact-example">（例：地域団体セミナー / 学校向け講座 / 社内研修 など）</p>
+        </div>
+        <picture class="contact-chara"><source srcset="assets/images/character.webp" type="image/webp"><img src="assets/images/character.png" alt="大川拓巳のキャラクターイラスト" width="560" height="558" loading="lazy"></picture>
         </div>
 
         <div class="contact-actions">
