@@ -129,6 +129,23 @@
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
     .chips li { padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; background: var(--white); }
     .motto { font-weight: 700; }
+    .quals-row { margin-top: 28px; padding: 16px 20px; background: var(--panel-card); border-radius: var(--radius); display: grid; grid-template-columns: auto 1fr; gap: 6px 20px; align-items: center; }
+    .quals-label { font-size: 13px; font-weight: 700; color: var(--blue-text); letter-spacing: .06em; }
+    .quals-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
+    .cert-open { display: flex; align-items: center; gap: 10px; padding: 4px 6px 4px 4px; border: 0; border-radius: var(--radius-sm); background: transparent; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
+    .cert-open:hover { background: rgba(255,255,255,.7); }
+    .cert-open:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .cert-thumb { flex: none; width: 40px; height: 56px; border-radius: 4px; border: 1px solid var(--line); background-size: cover; background-position: top center; background-color: var(--white); box-shadow: 0 2px 6px rgba(14,27,66,.12); }
+    .cert-text { display: grid; line-height: 1.4; }
+    .cert-text b { font-size: 14px; }
+    .cert-text small { font-size: 12px; color: var(--caption); }
+    .quals-hint { grid-column: 2; margin: 0; font-size: 11px; color: var(--caption); }
+    .cert-dialog { border: 0; padding: 0; background: transparent; max-width: min(92vw, 560px); width: 100%; -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
+    .cert-dialog::backdrop { background: rgba(14,27,66,.7); }
+    .cert-view { width: 100%; aspect-ratio: 1 / 1.414; max-height: 82vh; background-size: contain; background-repeat: no-repeat; background-position: center; background-color: var(--white); border-radius: var(--radius-sm); }
+    .cert-caption { margin: 10px 0 0; text-align: center; color: var(--white); font-size: 13px; }
+    .cert-close { position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--white); color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+    @media (max-width: 640px) { .quals-row { grid-template-columns: 1fr; gap: 8px; } .quals-hint { grid-column: 1; } .quals-list { gap: 8px; } .cert-close { top: 6px; right: 6px; } }
     .profile-body p { margin: 0 0 12px; }
     .roles-lead { margin-bottom: 4px !important; }
     .roles { list-style: none; margin: 0 0 4px; padding-left: 1em; }
@@ -141,20 +158,11 @@
     .stats small { font-size: 18px; margin-left: 2px; }
     .stats span { display: block; margin-top: 6px; font-size: 14px; }
     .note { margin: 12px 0 0; font-size: 13px; color: var(--caption); }
-    .certs-heading { margin-top: 48px; }
     .value { margin-top: 56px; padding: 28px 32px; background: var(--panel-card); border-left: 6px solid var(--orange); border-radius: var(--radius-sm) var(--radius) var(--radius) var(--radius-sm); }
     .value .value-heading { margin: 0 0 12px; font-size: 20px; }
     .value p { margin: 0 0 10px; line-height: 1.9; }
     .value p:last-child { margin-bottom: 0; }
     @media (max-width: 640px) { .value { padding: 22px 20px; } }
-    .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 24px; }
-    .certs li { margin: 0; }
-    .cert-img { width: 100%; aspect-ratio: 1 / 1.414; background-size: cover; background-position: top center; background-color: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: 0 6px 20px rgba(14,27,66,.08); -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
-    .certs { -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
-    .certs figcaption { margin-top: 10px; font-size: 14px; line-height: 1.6; }
-    .certs figcaption b { display: block; color: var(--ink); }
-    .certs figcaption span { color: var(--caption); font-size: 13px; }
-    @media (max-width: 640px) { .certs { grid-template-columns: 1fr 1fr; gap: 12px; } .certs figcaption { font-size: 13px; } }
     .tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
     .tags li { color: var(--blue-text); background: #E8F1FC; padding: 4px 14px; border-radius: 999px; font-weight: 500; font-size: 15px; }
 
@@ -307,6 +315,7 @@
     .sub-heading { font-size: 22px; margin: 56px 0 16px; }
     .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .gallery li { margin: 0; }
+    .gallery.is-collapsed li:nth-child(n+7) { display: none; }
     .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--panel-card); }
     .gallery figcaption { margin-top: 8px; font-size: 13px; color: var(--caption); }
     .timeline { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 0 24px; }
@@ -503,11 +512,14 @@
         </ul>
         <p class="note">※2026年10月26日時点</p>
 
-        <h3 class="sub-heading certs-heading">保有資格</h3>
-        <ul class="certs">
-          <li><div class="cert-img" role="img" aria-label="生成AIパスポート 合格証明書" style="background-image:url(assets/images/certs/passport.jpg)"></div><figcaption><b>生成AIパスポート</b><span>生成AI活用普及協会（GUGA）・2025年7月取得</span></figcaption></li>
-          <li><div class="cert-img" role="img" aria-label="G検定 合格証書" style="background-image:url(assets/images/certs/gkentei.jpg)"></div><figcaption><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><span>日本ディープラーニング協会（JDLA）・2026年1月取得</span></figcaption></li>
-        </ul>
+        <div class="quals-row">
+          <span class="quals-label">保有資格</span>
+          <ul class="quals-list">
+            <li><button type="button" class="cert-open" data-src="assets/images/certs/passport.jpg" data-label="生成AIパスポート 合格証明書（生成AI活用普及協会・2025年7月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/passport.jpg)" aria-hidden="true"></span><span class="cert-text"><b>生成AIパスポート</b><small>生成AI活用普及協会（GUGA）・2025年7月取得</small></span></button></li>
+            <li><button type="button" class="cert-open" data-src="assets/images/certs/gkentei.jpg" data-label="G検定 合格証書（日本ディープラーニング協会・2026年1月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/gkentei.jpg)" aria-hidden="true"></span><span class="cert-text"><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><small>日本ディープラーニング協会（JDLA）・2026年1月取得</small></span></button></li>
+          </ul>
+          <p class="quals-hint">押すと合格証を表示します</p>
+        </div>
 
         <div class="value">
           <h3 class="sub-heading value-heading">私が提供できる価値</h3>
@@ -905,7 +917,8 @@
         <p class="works-more-wrap"><button type="button" class="btn btn-more" id="works-more" aria-controls="works-list" aria-expanded="false">残り35件の登壇実績を見る</button></p>
 
         <h3 class="sub-heading">現場の様子</h3>
-        <ul class="gallery"><li><img src="assets/images/x/g-hamakita.jpg" alt="静岡県立浜北西高校「未来授業」（2026年10月）" loading="lazy"><figcaption>静岡県立浜北西高校「未来授業」（2026年10月）</figcaption></li><li><img src="assets/images/x/g-nagoya-0927.jpg" alt="名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）" loading="lazy"><figcaption>名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）</figcaption></li><li><img src="assets/images/x/g-fujieda.jpg" alt="藤枝市 生成AI講座（2026年8月）" loading="lazy"><figcaption>藤枝市 生成AI講座（2026年8月）</figcaption></li><li><img src="assets/images/x/g-kakegawa.jpg" alt="Claude Code勉強会 in 掛川市（2026年8月）" loading="lazy"><figcaption>Claude Code勉強会 in 掛川市（2026年8月）</figcaption></li><li><img src="assets/images/x/g-nishio-1.jpg" alt="西尾鉢物出荷組合 サマーセミナー（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nishio-2.jpg" alt="西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-1.jpg" alt="蒲郡市 農林水産課セミナー（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-2.jpg" alt="蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nagoya-cc.jpg" alt="名古屋オフ会 Claude Code実践オフ会（2026年6月）" loading="lazy"><figcaption>名古屋オフ会 Claude Code実践オフ会（2026年6月）</figcaption></li><li><img src="assets/images/x/g-camp.jpg" alt="SHIFT AI 初のリアル合宿 東京（2026年2月）" loading="lazy"><figcaption>SHIFT AI 初のリアル合宿 東京（2026年2月）</figcaption></li><li><img src="assets/images/x/g-komagoe.jpg" alt="静岡市内の自治体 生成AI活用講座（2026年1月）" loading="lazy"><figcaption>静岡市内の自治体 生成AI活用講座（2026年1月）</figcaption></li><li><img src="assets/images/x/g-agri-1.jpg" alt="農業×AIワークショップ 西尾市（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 西尾市（2025年12月）</figcaption></li><li><img src="assets/images/x/g-agri-2.jpg" alt="農業×AIワークショップ 関係者のみなさんと（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 関係者のみなさんと（2025年12月）</figcaption></li><li><img src="assets/images/x/g-kambara.jpg" alt="静岡県内の自治体 生成AI講座（2025年11月）" loading="lazy"><figcaption>静岡県内の自治体 生成AI講座（2025年11月）</figcaption></li><li><img src="assets/images/x/g-tokyo.jpg" alt="東京リアルイベント サポート講師（2025年10月）" loading="lazy"><figcaption>東京リアルイベント サポート講師（2025年10月）</figcaption></li></ul>
+        <ul class="gallery is-collapsed" id="gallery-list"><li><img src="assets/images/x/g-hamakita.jpg" alt="静岡県立浜北西高校「未来授業」（2026年10月）" loading="lazy"><figcaption>静岡県立浜北西高校「未来授業」（2026年10月）</figcaption></li><li><img src="assets/images/x/g-nagoya-0927.jpg" alt="名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）" loading="lazy"><figcaption>名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）</figcaption></li><li><img src="assets/images/x/g-fujieda.jpg" alt="藤枝市 生成AI講座（2026年8月）" loading="lazy"><figcaption>藤枝市 生成AI講座（2026年8月）</figcaption></li><li><img src="assets/images/x/g-kakegawa.jpg" alt="Claude Code勉強会 in 掛川市（2026年8月）" loading="lazy"><figcaption>Claude Code勉強会 in 掛川市（2026年8月）</figcaption></li><li><img src="assets/images/x/g-nishio-1.jpg" alt="西尾鉢物出荷組合 サマーセミナー（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nishio-2.jpg" alt="西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-1.jpg" alt="蒲郡市 農林水産課セミナー（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-2.jpg" alt="蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nagoya-cc.jpg" alt="名古屋オフ会 Claude Code実践オフ会（2026年6月）" loading="lazy"><figcaption>名古屋オフ会 Claude Code実践オフ会（2026年6月）</figcaption></li><li><img src="assets/images/x/g-camp.jpg" alt="SHIFT AI 初のリアル合宿 東京（2026年2月）" loading="lazy"><figcaption>SHIFT AI 初のリアル合宿 東京（2026年2月）</figcaption></li><li><img src="assets/images/x/g-komagoe.jpg" alt="静岡市内の自治体 生成AI活用講座（2026年1月）" loading="lazy"><figcaption>静岡市内の自治体 生成AI活用講座（2026年1月）</figcaption></li><li><img src="assets/images/x/g-agri-1.jpg" alt="農業×AIワークショップ 西尾市（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 西尾市（2025年12月）</figcaption></li><li><img src="assets/images/x/g-agri-2.jpg" alt="農業×AIワークショップ 関係者のみなさんと（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 関係者のみなさんと（2025年12月）</figcaption></li><li><img src="assets/images/x/g-kambara.jpg" alt="静岡県内の自治体 生成AI講座（2025年11月）" loading="lazy"><figcaption>静岡県内の自治体 生成AI講座（2025年11月）</figcaption></li><li><img src="assets/images/x/g-tokyo.jpg" alt="東京リアルイベント サポート講師（2025年10月）" loading="lazy"><figcaption>東京リアルイベント サポート講師（2025年10月）</figcaption></li></ul>
+        <p class="works-more-wrap"><button type="button" class="btn btn-more" id="gallery-more" aria-controls="gallery-list" aria-expanded="false">ほかの写真9枚を見る</button></p>
 
         <h3 class="sub-heading">登壇実績 全72回の一覧</h3>
         <p class="note">※2026年10月26日時点</p>
@@ -970,6 +983,12 @@
     <div class="gradient-bar" aria-hidden="true"></div>
   </footer>
 
+  <dialog id="cert-dialog" class="cert-dialog" aria-label="合格証">
+    <div class="cert-view" role="img" aria-label=""></div>
+    <p class="cert-caption"></p>
+    <button type="button" class="cert-close" aria-label="閉じる">×</button>
+  </dialog>
+
   <script>
     // スマホのメニュー開閉
     const toggle = document.querySelector('.menu-toggle');
@@ -984,17 +1003,49 @@
     }));
 
     // 合格証の保存操作を抑止
-    document.querySelectorAll('.certs').forEach(el => {
+    document.querySelectorAll('.quals-row').forEach(el => {
       el.addEventListener('contextmenu', e => e.preventDefault());
       el.addEventListener('dragstart', e => e.preventDefault());
     });
     // 登壇実績の「もっと見る」
     const moreBtn = document.getElementById('works-more');
-    if (moreBtn) moreBtn.addEventListener('click', () => {
-      document.getElementById('works-list').classList.remove('is-collapsed');
-      moreBtn.setAttribute('aria-expanded', 'true');
-      moreBtn.parentElement.remove();
-    });
+    if (moreBtn) {
+      const list = document.getElementById('works-list');
+      const openLabel = moreBtn.textContent;
+      moreBtn.addEventListener('click', () => {
+        const open = list.classList.toggle('is-collapsed') === false;
+        moreBtn.setAttribute('aria-expanded', String(open));
+        moreBtn.textContent = open ? '登壇実績を閉じる' : openLabel;
+        if (!open) document.getElementById('works').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    // 現場写真の開閉
+    const galBtn = document.getElementById('gallery-more');
+    if (galBtn) {
+      const gal = document.getElementById('gallery-list');
+      const openLabel = galBtn.textContent;
+      galBtn.addEventListener('click', () => {
+        const open = gal.classList.toggle('is-collapsed') === false;
+        galBtn.setAttribute('aria-expanded', String(open));
+        galBtn.textContent = open ? '写真を閉じる' : openLabel;
+      });
+    }
+    // 合格証の拡大表示
+    const certDialog = document.getElementById('cert-dialog');
+    if (certDialog) {
+      const view = certDialog.querySelector('.cert-view');
+      const cap = certDialog.querySelector('.cert-caption');
+      document.querySelectorAll('.cert-open').forEach(btn => btn.addEventListener('click', () => {
+        view.style.backgroundImage = `url(${btn.dataset.src})`;
+        view.setAttribute('aria-label', btn.dataset.label);
+        cap.textContent = btn.dataset.label;
+        certDialog.showModal();
+      }));
+      certDialog.querySelector('.cert-close').addEventListener('click', () => certDialog.close());
+      certDialog.addEventListener('click', e => { if (e.target === certDialog) certDialog.close(); });
+      certDialog.addEventListener('contextmenu', e => e.preventDefault());
+      certDialog.addEventListener('dragstart', e => e.preventDefault());
+    }
   </script>
 </body>
 </html>
