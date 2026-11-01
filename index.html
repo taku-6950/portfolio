@@ -132,6 +132,11 @@
     .stats span { display: block; margin-top: 6px; font-size: 14px; }
     .note { margin: 12px 0 0; font-size: 13px; color: var(--caption); }
     .certs-heading { margin-top: 48px; }
+    .value { margin-top: 56px; padding: 28px 32px; background: var(--panel-card); border-left: 6px solid var(--orange); border-radius: var(--radius-sm) var(--radius) var(--radius) var(--radius-sm); }
+    .value .value-heading { margin: 0 0 12px; font-size: 20px; }
+    .value p { margin: 0 0 10px; line-height: 1.9; }
+    .value p:last-child { margin-bottom: 0; }
+    @media (max-width: 640px) { .value { padding: 22px 20px; } }
     .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 24px; }
     .certs li { margin: 0; }
     .certs a { display: block; }
@@ -183,7 +188,6 @@
     .contact-title { font-size: 20px; font-weight: 700; line-height: 1.4; }
     .contact-title::after { content: " →"; color: var(--orange); }
     .contact-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.78); }
-    .contact-note { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.78); max-width: 820px; line-height: 1.8; }
     @media (max-width: 640px) { .contact-actions { grid-template-columns: 1fr; } .contact-card { padding: 22px 20px; } }
     .sns { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
     .sns a { color: var(--white); font-weight: 500; }
@@ -330,6 +334,12 @@
           <li><a href="assets/images/certs/passport.jpg" target="_blank" rel="noopener"><img src="assets/images/certs/passport.jpg" alt="生成AIパスポート 合格証明書" loading="lazy"></a><figcaption><b>生成AIパスポート</b><span>生成AI活用普及協会（GUGA）・2025年7月取得</span></figcaption></li>
           <li><a href="assets/images/certs/gkentei.jpg" target="_blank" rel="noopener"><img src="assets/images/certs/gkentei.jpg" alt="G検定 合格証書" loading="lazy"></a><figcaption><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><span>日本ディープラーニング協会（JDLA）・2026年1月取得</span></figcaption></li>
         </ul>
+
+        <div class="value">
+          <h3 class="sub-heading value-heading">私が提供できる価値</h3>
+          <p>生成AIに対する不安を解消し、参加者全員が「自分にも使える」と実感できる講座を提供します。</p>
+          <p>単発で終わらず、講座後も日常生活や仕事の中で活用できる状態を目指して、みなさまが少しずつ自走できるAI活用の土台づくりを支援させていただきます。</p>
+        </div>
       </div>
     </section>
 
@@ -805,7 +815,6 @@
             <span class="contact-desc">資料の添付や、複数名での打ち合わせ調整はメールでどうぞ。</span>
           </a>
         </div>
-        <p class="contact-note">ご相談の種類（講座・研修／AIエージェント導入／LP・資料制作／その他）と、ご希望の時期をひとこと添えていただけると助かります。</p>
       </div>
     </section>
   </main>
