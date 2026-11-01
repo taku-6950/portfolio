@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>大川 拓巳 ポートフォリオ | AIP Dimensions</title>
-  <meta name="description" content="生成AIで、人生に余白を。AIP Dimensions 代表・大川拓巳のポートフォリオ。生成AIの講座・研修、AIエージェント導入、LP・資料制作の実績を紹介します。" />
+  <meta name="description" content="静岡県を拠点に、地域住民・自治体・学生・企業向けの生成AI講座・研修を行うSHIFT AI認定講師 大川拓巳（AIP Dimensions 代表）のポートフォリオ。登壇72回・延べ6,356名の実績と講座のご案内。" />
 
   <!-- OGP（公開URL・OGP画像は公開時に差し替え） -->
   <meta property="og:title" content="大川 拓巳 ポートフォリオ | AIP Dimensions" />
@@ -151,6 +151,10 @@
 
     /* 作品 */
     .works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .works.is-collapsed .work:nth-child(n+13) { display: none; }
+    .works-more-wrap { margin: 28px 0 0; text-align: center; }
+    .btn-more { background: var(--white); color: var(--ink); border: 1.5px solid var(--ink); }
+    .btn-more:hover { background: var(--ink); color: var(--white); }
     .work { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
     .work-thumb { aspect-ratio: 16 / 9; }
     .work-body { padding: 20px 24px 24px; }
@@ -195,6 +199,15 @@
     @media (max-width: 640px) { .contact-actions { grid-template-columns: 1fr; } .contact-card { padding: 22px 20px; } }
     .sns { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
     .sns a { color: var(--white); font-weight: 500; }
+
+    /* ご依頼の流れ */
+    .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; counter-reset: none; }
+    .flow li { position: relative; background: var(--panel-card); border-radius: var(--radius); padding: 24px 20px 22px; }
+    .flow-num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: var(--white); font-weight: 700; margin-bottom: 12px; }
+    .flow h3 { font-size: 17px; margin-bottom: 8px; }
+    .flow p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--caption); }
+    @media (max-width: 960px) { .flow { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .flow { grid-template-columns: 1fr; gap: 12px; } .flow li { display: grid; grid-template-columns: 36px 1fr; column-gap: 14px; padding: 18px 16px; } .flow-num { margin: 0; grid-row: 1 / span 2; } .flow h3 { font-size: 16px; margin-bottom: 4px; } }
 
     /* フッター */
     .site-footer { background: var(--white); border-top: 1px solid var(--line); }
@@ -277,6 +290,7 @@
       <nav id="site-nav" class="site-nav">
         <a href="#profile">プロフィール</a>
         <a href="#works">実績</a>
+        <a href="#flow">ご依頼の流れ</a>
         <a href="#contact" class="btn btn-primary btn-sm">ご相談はこちら</a>
       </nav>
     </div>
@@ -354,7 +368,7 @@
         <h2>登壇実績</h2>
         <p class="lead">地域住民・地方自治体・学生向けの講座から、SHIFT AIでのウェビナー・合宿講座まで掲載しています。</p>
 
-        <ul class="works">
+        <ul class="works is-collapsed" id="works-list">
 <li class="work">
   <img class="work-thumb" src="assets/images/works/elite.jpg" alt="SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）のサムネイル" loading="lazy">
   <div class="work-body">
@@ -779,6 +793,7 @@
   </div>
 </li>
         </ul>
+        <p class="works-more-wrap"><button type="button" class="btn btn-more" id="works-more" aria-controls="works-list" aria-expanded="false">残り35件の登壇実績を見る</button></p>
 
         <h3 class="sub-heading">現場の様子</h3>
         <ul class="gallery"><li><img src="assets/images/x/g-hamakita.jpg" alt="静岡県立浜北西高校「未来授業」（2026年10月）" loading="lazy"><figcaption>静岡県立浜北西高校「未来授業」（2026年10月）</figcaption></li><li><img src="assets/images/x/g-fujieda.jpg" alt="藤枝市 生成AI講座（2026年8月）" loading="lazy"><figcaption>藤枝市 生成AI講座（2026年8月）</figcaption></li><li><img src="assets/images/x/g-kakegawa.jpg" alt="Claude Code勉強会 in 掛川市（2026年8月）" loading="lazy"><figcaption>Claude Code勉強会 in 掛川市（2026年8月）</figcaption></li><li><img src="assets/images/x/g-nishio-1.jpg" alt="西尾鉢物出荷組合 サマーセミナー（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nishio-2.jpg" alt="西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）" loading="lazy"><figcaption>西尾鉢物出荷組合 サマーセミナー 会場の様子（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-1.jpg" alt="蒲郡市 農林水産課セミナー（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー（2026年7月）</figcaption></li><li><img src="assets/images/x/g-gamagori-2.jpg" alt="蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）" loading="lazy"><figcaption>蒲郡市 農林水産課セミナー 参加者のみなさんと（2026年7月）</figcaption></li><li><img src="assets/images/x/g-nagoya-cc.jpg" alt="名古屋オフ会 Claude Code実践オフ会（2026年6月）" loading="lazy"><figcaption>名古屋オフ会 Claude Code実践オフ会（2026年6月）</figcaption></li><li><img src="assets/images/x/g-camp.jpg" alt="SHIFT AI 初のリアル合宿 東京（2026年2月）" loading="lazy"><figcaption>SHIFT AI 初のリアル合宿 東京（2026年2月）</figcaption></li><li><img src="assets/images/x/g-komagoe.jpg" alt="静岡市内の自治体 生成AI活用講座（2026年1月）" loading="lazy"><figcaption>静岡市内の自治体 生成AI活用講座（2026年1月）</figcaption></li><li><img src="assets/images/x/g-agri-1.jpg" alt="農業×AIワークショップ 西尾市（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 西尾市（2025年12月）</figcaption></li><li><img src="assets/images/x/g-agri-2.jpg" alt="農業×AIワークショップ 関係者のみなさんと（2025年12月）" loading="lazy"><figcaption>農業×AIワークショップ 関係者のみなさんと（2025年12月）</figcaption></li><li><img src="assets/images/x/g-kambara.jpg" alt="静岡県内の自治体 生成AI講座（2025年11月）" loading="lazy"><figcaption>静岡県内の自治体 生成AI講座（2025年11月）</figcaption></li><li><img src="assets/images/x/g-nagoya-0927.jpg" alt="名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）" loading="lazy"><figcaption>名古屋オフ会「あなたの強みが仕事になる！」（2026年9月）</figcaption></li><li><img src="assets/images/x/g-tokyo.jpg" alt="東京リアルイベント サポート講師（2025年10月）" loading="lazy"><figcaption>東京リアルイベント サポート講師（2025年10月）</figcaption></li></ul>
@@ -789,6 +804,21 @@
           <summary>全72回の登壇一覧を見る</summary>
           <h4>2026年 <span>54回</span></h4><ol class="tl-list"><li><time>10/26</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>10/20</time><span class="tl-title">静岡県立浜北西高校「未来授業」（高校生向け生成AI講座）</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>10/17</time><span class="tl-title">G検定ハーフ模試＆徹底解説ウェビナー</span><span class="tl-cat">G検定</span></li><li><time>10/14</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>10/7</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>10/3</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>9/30</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>9/27</time><span class="tl-title">名古屋オフ会「AIコンサルタント」（登壇）</span><span class="tl-cat">名古屋オフ会</span></li><li><time>9/24</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>9/16</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>9/2</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>8/27</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>8/26</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>8/19</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>8/16</time><span class="tl-title">G検定ハーフ模試＆徹底解説ウェビナー</span><span class="tl-cat">G検定</span></li><li><time>8/8</time><span class="tl-title">Claude Code勉強会</span><span class="tl-cat">作業会・勉強会</span></li><li><time>8/5</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>8/2</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>8/1</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>7/23</time><span class="tl-title">西尾鉢物出荷組合 サマーセミナー「初めての生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>7/22</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>7/15</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>7/9</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>7/8</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>7/2</time><span class="tl-title">蒲郡市 農林水産課セミナー「ゼロから始めるChatGPT活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>7/1</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>6/28</time><span class="tl-title">名古屋オフ会「Claude Code実践オフ会」</span><span class="tl-cat">名古屋オフ会</span></li><li><time>6/27</time><span class="tl-title">G検定ハーフ模試＆徹底解説ウェビナー</span><span class="tl-cat">G検定</span></li><li><time>6/24</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>6/17</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（メイン講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>6/14</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>6/13</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>6/10</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（サブ講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>6/3</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（サブ講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>5/28</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>5/27</time><span class="tl-title">SHIFT AI ELITE AIエージェント実践講座（サブ講師）</span><span class="tl-cat">SHIFT AI ELITE</span></li><li><time>5/23</time><span class="tl-title">ゆるっと作業会 in 浜松</span><span class="tl-cat">作業会・勉強会</span></li><li><time>4/26</time><span class="tl-title">名古屋オフ会（司会進行）</span><span class="tl-cat">名古屋オフ会</span></li><li><time>4/25</time><span class="tl-title">G検定ハーフ模試＆徹底解説ウェビナー</span><span class="tl-cat">G検定</span></li><li><time>4/15</time><span class="tl-title">AIコンサルタント シリーズ講義 Day11</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>4/13</time><span class="tl-title">AIコンサルタント シリーズ講義 LT大会</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>4/11</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>4/9</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>3/26</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>3/12</time><span class="tl-title">AI講師勉強会</span><span class="tl-cat">AI講師勉強会</span></li><li><time>3/8</time><span class="tl-title">ゆるっと作業会</span><span class="tl-cat">作業会・勉強会</span></li><li><time>3/4</time><span class="tl-title">AIコンサルタント シリーズ講義 Day5</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>2/28</time><span class="tl-title">G検定ハーフ模試＆徹底解説ウェビナー</span><span class="tl-cat">G検定</span></li><li><time>2/7</time><span class="tl-title">東京リアル合宿 サポート講師（案件獲得会場）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>2/4</time><span class="tl-title">AIコンサルタント シリーズ講義 Day1</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>1/31</time><span class="tl-title">G検定対策集中講座</span><span class="tl-cat">G検定</span></li><li><time>1/24</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>1/21</time><span class="tl-title">AI列島縦断リレー「地方在住AIトップランナーによる案件獲得ルート解説」（静岡県代表）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>1/17</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li></ol><h4>2025年 <span>18回</span></h4><ol class="tl-list"><li><time>12/21</time><span class="tl-title">名古屋オフ会「Gemini×Canva」（登壇）</span><span class="tl-cat">名古屋オフ会</span></li><li><time>12/6</time><span class="tl-title">農業×AIワークショップ（JA西三河）</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>11/21</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>11/7</time><span class="tl-title">静岡県内 生涯学習講座「生成AI活用講座」</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>10/4</time><span class="tl-title">東京リアルイベント サポート講師</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>8/29</time><span class="tl-title">LT大会（モデレーター）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>8/23</time><span class="tl-title">ゆるっと作業会</span><span class="tl-cat">作業会・勉強会</span></li><li><time>7/29</time><span class="tl-title">LT大会（講評役）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>7/24</time><span class="tl-title">AIで書いた記事のリライト法（ウェビナー）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>7/12</time><span class="tl-title">藤枝市 生成AI勉強会（自主開催）</span><span class="tl-cat">自治体・団体・学校</span></li><li><time>6/28</time><span class="tl-title">業務効率化合宿</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>6/22</time><span class="tl-title">名古屋オフ会（登壇）</span><span class="tl-cat">名古屋オフ会</span></li><li><time>6/21</time><span class="tl-title">SEO案件獲得合宿</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>6/19</time><span class="tl-title">AIライター質問回答会</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>6/8</time><span class="tl-title">ゆるっと作業会</span><span class="tl-cat">作業会・勉強会</span></li><li><time>5/16</time><span class="tl-title">読まれる記事の構成術（ウェビナー）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>5/15</time><span class="tl-title">AIライター質問回答会</span><span class="tl-cat">SHIFT AI ウェビナー</span></li><li><time>2/24</time><span class="tl-title">LT大会（初登壇）</span><span class="tl-cat">SHIFT AI ウェビナー</span></li></ol>
         </details>
+      </div>
+    </section>
+
+    <!-- ご依頼の流れ -->
+    <section id="flow" class="section">
+      <div class="container">
+        <p class="label">Flow</p>
+        <h2>ご依頼の流れ</h2>
+        <ol class="flow">
+          <li><span class="flow-num">1</span><h3>お問い合わせ</h3><p>メールまたはXのDMで、目的・対象者・時期の目安をお知らせください。</p></li>
+          <li><span class="flow-num">2</span><h3>ヒアリング</h3><p>参加者のレベルや困りごと、ゴールを伺います。オンラインでも可能です。</p></li>
+          <li><span class="flow-num">3</span><h3>内容のご提案</h3><p>目的に合わせた構成・時間・費用をご提案します。</p></li>
+          <li><span class="flow-num">4</span><h3>実施</h3><p>講座・セミナー・研修を実施。初心者の方でも「自分にも使える」と実感できる内容にします。</p></li>
+          <li><span class="flow-num">5</span><h3>実施後フォロー</h3><p>質問への対応や次のステップのご相談など、講座後の活用も支援します。</p></li>
+        </ol>
       </div>
     </section>
 
@@ -810,13 +840,13 @@
         </div>
 
         <div class="contact-actions">
-          <a class="contact-card" href="https://x.com/tmyr_ai_15" target="_blank" rel="noopener">
-            <span class="contact-kind">X（旧Twitter）のDM</span>
-            <span class="contact-title">@tmyr_ai_15 にDMを送る</span>
-          </a>
           <a class="contact-card" href="mailto:aipdimensions@gmail.com">
             <span class="contact-kind">メール</span>
             <span class="contact-title">メールで相談する</span>
+          </a>
+          <a class="contact-card" href="https://x.com/tmyr_ai_15" target="_blank" rel="noopener">
+            <span class="contact-kind">X（旧Twitter）のDM</span>
+            <span class="contact-title">@tmyr_ai_15 にDMを送る</span>
           </a>
         </div>
       </div>
@@ -844,6 +874,13 @@
       document.body.classList.remove('nav-open');
     }));
 
+    // 登壇実績の「もっと見る」
+    const moreBtn = document.getElementById('works-more');
+    if (moreBtn) moreBtn.addEventListener('click', () => {
+      document.getElementById('works-list').classList.remove('is-collapsed');
+      moreBtn.setAttribute('aria-expanded', 'true');
+      moreBtn.parentElement.remove();
+    });
   </script>
 </body>
 </html>
