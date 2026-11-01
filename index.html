@@ -126,6 +126,16 @@
     .stats small { font-size: 18px; margin-left: 2px; }
     .stats span { display: block; margin-top: 6px; font-size: 14px; }
     .note { margin: 12px 0 0; font-size: 13px; color: var(--caption); }
+    .certs-heading { margin-top: 48px; }
+    .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 24px; }
+    .certs li { margin: 0; }
+    .certs a { display: block; }
+    .certs img { display: block; width: 100%; aspect-ratio: 1 / 1.414; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--white); box-shadow: 0 6px 20px rgba(14,27,66,.08); transition: transform .2s; }
+    .certs a:hover img { transform: translateY(-3px); }
+    .certs figcaption { margin-top: 10px; font-size: 14px; line-height: 1.6; }
+    .certs figcaption b { display: block; color: var(--ink); }
+    .certs figcaption span { color: var(--caption); font-size: 13px; }
+    @media (max-width: 640px) { .certs { grid-template-columns: 1fr 1fr; gap: 12px; } .certs figcaption { font-size: 13px; } }
     .tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
     .tags li { color: var(--blue-text); background: #E8F1FC; padding: 4px 14px; border-radius: 999px; font-weight: 500; font-size: 15px; }
 
@@ -210,7 +220,7 @@
 
 
     /* 実績：追加分 */
-    .lead { max-width: 720px; margin: 0 0 28px; font-size: 16px; color: var(--caption); }
+    .lead { max-width: none; margin: 0 0 28px; font-size: 16px; color: var(--caption); }
     img.work-thumb { display: block; width: 100%; object-fit: cover; background: var(--panel-card); }
     .work h3 { font-size: 18px; line-height: 1.5; }
     .work-body p { color: var(--caption); line-height: 1.7; }
@@ -298,6 +308,12 @@
           <li><strong>72<small>回</small></strong><span>登壇回数（オンライン含む）</span></li>
         </ul>
         <p class="note">※2026年10月26日時点</p>
+
+        <h3 class="sub-heading certs-heading">保有資格</h3>
+        <ul class="certs">
+          <li><a href="assets/images/certs/passport.jpg" target="_blank" rel="noopener"><img src="assets/images/certs/passport.jpg" alt="生成AIパスポート 合格証明書" loading="lazy"></a><figcaption><b>生成AIパスポート</b><span>生成AI活用普及協会（GUGA）・2025年7月取得</span></figcaption></li>
+          <li><a href="assets/images/certs/gkentei.jpg" target="_blank" rel="noopener"><img src="assets/images/certs/gkentei.jpg" alt="G検定 合格証書" loading="lazy"></a><figcaption><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><span>日本ディープラーニング協会（JDLA）・2026年1月取得</span></figcaption></li>
+        </ul>
       </div>
     </section>
 
