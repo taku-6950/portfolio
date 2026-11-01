@@ -98,11 +98,21 @@
     .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(ellipse 60% 80% at 92% 50%, rgba(250,125,15,.22), transparent 70%),
                   radial-gradient(ellipse 50% 70% at 70% 100%, rgba(30,127,224,.20), transparent 70%); }
-    .hero-inner { position: relative; padding-top: 56px; padding-bottom: 64px; }
-    .hero-text { max-width: 820px; }
-    .hero h1 { font-size: clamp(28px, 4.6vw, 48px); letter-spacing: .02em; }
-    .hero-sub { margin: 14px 0 4px; font-weight: 700; }
-    .hero-lead { margin: 0 0 28px; color: rgba(255,255,255,.8); }
+    .hero-inner { position: relative; display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; padding-top: 56px; padding-bottom: 64px; }
+    .hero-text { max-width: 720px; }
+    .hero-sub { margin: 18px 0 6px; font-size: clamp(17px, 2vw, 21px); font-weight: 700; line-height: 1.6; }
+    .hero-lead { margin: 0 0 18px; color: rgba(255,255,255,.85); }
+    .hero-stats { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+    .hero-stats li { display: flex; align-items: baseline; gap: 4px; }
+    .hero-stats strong { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; color: var(--orange); letter-spacing: .01em; }
+    .hero-stats span { font-size: 14px; font-weight: 700; }
+    .hero-stats-note { font-size: 12px; color: rgba(255,255,255,.65); }
+    .hero-photo-wrap { margin: 0; }
+    .hero-photo { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 60% 40%; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo-wrap figcaption { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,.65); text-align: right; }
+    .sp-only { display: none; }
+    .hero h1 { font-size: clamp(26px, 3.6vw, 40px); letter-spacing: .02em; white-space: nowrap; }
+    .nowrap { white-space: nowrap; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; }
     .gradient-bar { height: 4px; background: var(--gradient); }
     .hero .gradient-bar { position: absolute; left: 0; right: 0; bottom: 0; }
@@ -160,6 +170,7 @@
     .work-body p { margin: 0 0 8px; font-size: 15px; }
     .work h3 { font-size: 20px; margin-bottom: 8px; }
     .work-date { display: inline-block; color: var(--blue-text); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; }
+    .work-role { display: inline-block; margin: 0 0 6px 8px; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; color: var(--ink); background: var(--panel-card); vertical-align: 1px; }
     .result { font-weight: 700; }
 
     /* 連絡先 */
@@ -218,6 +229,7 @@
     @media (max-width: 900px) {
       .works { grid-template-columns: repeat(2, 1fr); }
       .profile { grid-template-columns: 180px 1fr; gap: 32px; }
+      .hero-inner { grid-template-columns: 1fr 300px; gap: 32px; }
     }
 
     /* スマホ */
@@ -235,7 +247,11 @@
       .site-nav .btn { margin-top: 12px; width: 100%; }
       .nav-open .site-nav { display: flex; }
 
-      .hero-inner { padding-top: 40px; padding-bottom: 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; padding-top: 40px; padding-bottom: 48px; }
+      .hero h1 { white-space: normal; }
+      .hero-photo-wrap { order: 2; }
+      .hero-photo { aspect-ratio: 16 / 10; }
+      .sp-only { display: inline; }
       .hero-cta .btn { width: 100%; }
       .section { padding: 64px 0; }
       .profile { grid-template-columns: 1fr; }
@@ -302,13 +318,22 @@
         <div class="hero-text">
           <p class="label label-on-dark">PORTFOLIO</p>
           <h1>生成AIで、人生に余白を。</h1>
-          <p class="hero-sub">AIP Dimensions 代表　大川 拓巳</p>
-          <p class="hero-lead">任せられる仕事はAIに。生まれた時間を、あなたにしかできない大切なことに。</p>
+          <p class="hero-sub">自治体・学校・企業向けに、<br class="sp-only">初心者が実際に使える生成AI講座・研修を。</p>
+          <p class="hero-lead">SHIFT AI 認定講師・AIP Dimensions 代表　<span class="nowrap">大川 拓巳</span></p>
+          <ul class="hero-stats">
+            <li><strong>72</strong><span>回 登壇</span></li>
+            <li><strong>6,356</strong><span>名 延べ受講者</span></li>
+            <li class="hero-stats-note">※2026年10月26日時点</li>
+          </ul>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary">ご相談はこちら</a>
             <a href="#works" class="btn btn-ghost">実績を見る</a>
           </div>
         </div>
+        <figure class="hero-photo-wrap">
+          <img class="hero-photo" src="assets/images/x/g-gamagori-1.jpg" alt="蒲郡市のセミナーで講演する大川拓巳" width="1400" height="1050">
+          <figcaption>蒲郡市 農林水産課セミナー（2026年7月）</figcaption>
+        </figure>
       </div>
       <div class="gradient-bar" aria-hidden="true"></div>
     </section>
@@ -371,7 +396,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/works/elite.jpg" alt="SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.10.26</time>
+    <time class="work-date">2026.10.26</time><span class="work-role">メイン講師・サブ講師</span>
     <h3>SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）</h3>
     <p>2026年5月〜10月。社長秘書AI・SNSマーケターAI・法務コンプラAI・経理AIなど、職種別のAIエージェントを作り上げる講座を担当。</p>
   </div>
@@ -379,7 +404,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/hamakita.jpg" alt="静岡県立浜北西高校「未来授業」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.10.20</time>
+    <time class="work-date">2026.10.20</time><span class="work-role">講師</span>
     <h3>静岡県立浜北西高校「未来授業」</h3>
     <p>静岡県浜松市。高校1・2年生向けに、生成AIの仕組みとAIリテラシーを授業形式で。</p>
   </div>
@@ -387,7 +412,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-1017.jpg" alt="G検定 中間ハーフ模試＆徹底解説ウェビナーのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.10.17</time>
+    <time class="work-date">2026.10.17</time><span class="work-role">講師</span>
     <h3>G検定 中間ハーフ模試＆徹底解説ウェビナー</h3>
     <p>SHIFT AI。本番まで3週間の受験者向けに、73問の模試で現在地を確認し、つまずきやすい論点を解説。</p>
   </div>
@@ -395,7 +420,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-1003.jpg" alt="G検定対策集中講座のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.10.3</time>
+    <time class="work-date">2026.10.3</time><span class="work-role">講師</span>
     <h3>G検定対策集中講座</h3>
     <p>SHIFT AI。初回から携わり通算5回目の登壇。「わかった気」から「解ける」へ。</p>
   </div>
@@ -403,7 +428,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nagoya-0927.jpg" alt="SHIFT AI 名古屋オフ会「あなたの強みが仕事になる！」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.9.27</time>
+    <time class="work-date">2026.9.27</time><span class="work-role">講師</span>
     <h3>SHIFT AI 名古屋オフ会「あなたの強みが仕事になる！」</h3>
     <p>名古屋市。AIコンサルタントをテーマに、自分の経験・強みを棚卸しして「選ばれる理由カード」を作るワークショップ。講義＋ワーク＋交流会の3時間。</p>
   </div>
@@ -411,15 +436,15 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/fujieda-2.jpg" alt="藤枝市 生成AI講座 Day2（地域住民向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.8.19</time>
+    <time class="work-date">2026.8.19</time><span class="work-role">講師</span>
     <h3>藤枝市 生成AI講座 Day2（地域住民向け）</h3>
-    <p>静岡県藤枝市。全2回の後半。AI初心者を中心に、実際に手を動かしながら生成AIの便利さを体験。満足度4.8（5点満点）。</p>
+    <p>静岡県藤枝市。全2回の後半。AI初心者を中心に、実際に手を動かしながら生成AIの便利さを体験。受講後アンケートの満足度は4.8（5点満点）。</p>
   </div>
 </li>
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0816.jpg" alt="G検定 中間ハーフ模試＆徹底解説ウェビナーのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.8.16</time>
+    <time class="work-date">2026.8.16</time><span class="work-role">講師</span>
     <h3>G検定 中間ハーフ模試＆徹底解説ウェビナー</h3>
     <p>SHIFT AI 3周年記念イベントの一環。本番を意識した73問の模試と、正答率の低い問題の徹底解説。</p>
   </div>
@@ -427,7 +452,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/kakegawa.jpg" alt="超初心者向け Claude Code勉強会 in 掛川市のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.8.8</time>
+    <time class="work-date">2026.8.8</time><span class="work-role">主催・講師</span>
     <h3>超初心者向け Claude Code勉強会 in 掛川市</h3>
     <p>静岡県掛川市（AIP Dimensions主催）。名前は聞いたことがあるけれど使い方が分からない方向けに、導入から実践まで。</p>
   </div>
@@ -435,7 +460,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/fujieda-1.jpg" alt="藤枝市 生成AI講座 Day1（地域住民向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.8.5</time>
+    <time class="work-date">2026.8.5</time><span class="work-role">講師</span>
     <h3>藤枝市 生成AI講座 Day1（地域住民向け）</h3>
     <p>静岡県藤枝市。参加枠20名に約4倍の申し込み。「生成AIって何？」から始める入門講座。</p>
   </div>
@@ -443,7 +468,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0801.jpg" alt="G検定対策集中講座（2日間）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.8.1</time>
+    <time class="work-date">2026.8.1</time><span class="work-role">講師</span>
     <h3>G検定対策集中講座（2日間）</h3>
     <p>SHIFT AI 3周年記念イベント。8月1日・2日の2日間で、合格の先の「AIを率いるリーダー」を目指す集中講義。</p>
   </div>
@@ -451,7 +476,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nishio.jpg" alt="西尾鉢物出荷組合 サマーセミナー「初めての生成AI活用講座」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.7.23</time>
+    <time class="work-date">2026.7.23</time><span class="work-role">講師</span>
     <h3>西尾鉢物出荷組合 サマーセミナー「初めての生成AI活用講座」</h3>
     <p>愛知県西尾市。生産者向けに生成AIの基本から農業現場での活用例までを講演。愛知県議・西尾市産業部長・JA西三河常務理事長が出席。</p>
   </div>
@@ -459,7 +484,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gamagori.jpg" alt="蒲郡市 農林水産課セミナー「ゼロから始めるChatGPT活用講座」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.7.2</time>
+    <time class="work-date">2026.7.2</time><span class="work-role">講師</span>
     <h3>蒲郡市 農林水産課セミナー「ゼロから始めるChatGPT活用講座」</h3>
     <p>愛知県蒲郡市（蒲郡市農業経営士連絡協議会 主催）。みかん・いちご農家と県・市の職員向けに実演。SHIFT AIよりプレスリリースを発行。</p>
   </div>
@@ -467,7 +492,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nagoya-0628.jpg" alt="SHIFT AI 名古屋オフ会「Claude Code実践オフ会」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.6.28</time>
+    <time class="work-date">2026.6.28</time><span class="work-role">講師</span>
     <h3>SHIFT AI 名古屋オフ会「Claude Code実践オフ会」</h3>
     <p>名古屋市。講師の考え方を学び、グループワークで業種別スキルをチームで作る。満員御礼。</p>
   </div>
@@ -475,7 +500,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0627.jpg" alt="G検定対策ハーフ模試＆徹底解説ウェビナーのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.6.27</time>
+    <time class="work-date">2026.6.27</time><span class="work-role">講師</span>
     <h3>G検定対策ハーフ模試＆徹底解説ウェビナー</h3>
     <p>SHIFT AI。73問の真剣勝負と頻出ポイントの徹底解説。</p>
   </div>
@@ -483,7 +508,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0613.jpg" alt="G検定対策集中講座（2日間）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.6.13</time>
+    <time class="work-date">2026.6.13</time><span class="work-role">講師</span>
     <h3>G検定対策集中講座（2日間）</h3>
     <p>SHIFT AI。6月13日・14日の2日間で講義11時間、スライド411枚。「わかる」から「提案できる」へ。</p>
   </div>
@@ -491,7 +516,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/yurutto-0523.jpg" alt="ゆるっと作業会 in 浜松のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.5.23</time>
+    <time class="work-date">2026.5.23</time><span class="work-role">運営・サポート</span>
     <h3>ゆるっと作業会 in 浜松</h3>
     <p>静岡県浜松市。県内各地から集まったメンバーと、AIツールを触りながら知見を共有する3時間。運営・サポートを担当。</p>
   </div>
@@ -499,7 +524,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nagoya-0426.jpg" alt="SHIFT AI 名古屋オフ会「新年度ランチ大交流会2026」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.4.26</time>
+    <time class="work-date">2026.4.26</time><span class="work-role">司会進行</span>
     <h3>SHIFT AI 名古屋オフ会「新年度ランチ大交流会2026」</h3>
     <p>名古屋市。司会進行を担当。AI活用のリアル事例と、次につながる出会いの場。先着60名が満席に。</p>
   </div>
@@ -507,7 +532,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0425.jpg" alt="G検定対策ハーフ模試＆徹底解説ウェビナーのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.4.25</time>
+    <time class="work-date">2026.4.25</time><span class="work-role">講師</span>
     <h3>G検定対策ハーフ模試＆徹底解説ウェビナー</h3>
     <p>SHIFT AI。講座申込者だけでなく一般公開ウェビナーとして開催。</p>
   </div>
@@ -515,7 +540,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/series-day11.jpg" alt="AIコンサルタント シリーズ講義 Day11「紹介とパートナーシップ」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.4.15</time>
+    <time class="work-date">2026.4.15</time><span class="work-role">講師</span>
     <h3>AIコンサルタント シリーズ講義 Day11「紹介とパートナーシップ」</h3>
     <p>SHIFT AI。1件の受注を業界全体へ広げる「芋づる方式」で、案件を点→線→面で取っていく考え方を解説。</p>
   </div>
@@ -523,7 +548,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/series-lt.jpg" alt="AIコンサルタント シリーズ講義 LT大会「0→1達成」リアルロードマップ共有会のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.4.13</time>
+    <time class="work-date">2026.4.13</time><span class="work-role">登壇</span>
     <h3>AIコンサルタント シリーズ講義 LT大会「0→1達成」リアルロードマップ共有会</h3>
     <p>SHIFT AI。シリーズ講義の受講者22名が実績を報告。達成までの道のりを受講者自身が共有する特別回。</p>
   </div>
@@ -531,7 +556,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0411.jpg" alt="G検定対策集中講座のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.4.11</time>
+    <time class="work-date">2026.4.11</time><span class="work-role">講師</span>
     <h3>G検定対策集中講座</h3>
     <p>SHIFT AI。合格をゴールにしない、その先のキャリアを描く集中講義。申込者は前回の約2.7倍。</p>
   </div>
@@ -539,7 +564,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/yurutto-0308.jpg" alt="ゆるっと作業会 in 静岡のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.3.8</time>
+    <time class="work-date">2026.3.8</time><span class="work-role">運営サポート</span>
     <h3>ゆるっと作業会 in 静岡</h3>
     <p>静岡市。SHIFT AI 47プロジェクトの一環。参加者同士でAIツールを触りながら学び合う作業会。</p>
   </div>
@@ -547,7 +572,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/series-day5.jpg" alt="AIコンサルタント シリーズ講義 Day5「30秒で相手を惹きつける自己紹介カード作成」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.3.4</time>
+    <time class="work-date">2026.3.4</time><span class="work-role">講師</span>
     <h3>AIコンサルタント シリーズ講義 Day5「30秒で相手を惹きつける自己紹介カード作成」</h3>
     <p>SHIFT AI。交流会・イベントで「迷わず話せる人」になる実践ノウハウ。ブレイクアウトルームでロールプレイも実施。</p>
   </div>
@@ -555,7 +580,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0228.jpg" alt="G検定ハーフ模試＆徹底解説ウェビナーのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.2.28</time>
+    <time class="work-date">2026.2.28</time><span class="work-role">講師</span>
     <h3>G検定ハーフ模試＆徹底解説ウェビナー</h3>
     <p>SHIFT AI。本番直前の受験者向けに、73問・50分の模試と正答率50%以下の問題に絞った即解説。</p>
   </div>
@@ -563,7 +588,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/camp-0207.jpg" alt="SHIFT AI 初のリアル合宿「AI実装リアル合宿」サポート講師のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.2.7</time>
+    <time class="work-date">2026.2.7</time><span class="work-role">サポート講師</span>
     <h3>SHIFT AI 初のリアル合宿「AI実装リアル合宿」サポート講師</h3>
     <p>東京・神田。「案件獲得」会場で参加者の個別相談に対応するサポート講師を担当。</p>
   </div>
@@ -571,7 +596,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/gkentei-0131.jpg" alt="G検定対策集中講座のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.1.31</time>
+    <time class="work-date">2026.1.31</time><span class="work-role">講師</span>
     <h3>G検定対策集中講座</h3>
     <p>SHIFT AI 初のG検定講座を初回から担当。10:00〜17:00の6時間、合格後のキャリアにつなげる集中講義。</p>
   </div>
@@ -579,7 +604,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/komagoe-2.jpg" alt="静岡市内の自治体 生成AI活用講座 Day2（地域住民向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.1.24</time>
+    <time class="work-date">2026.1.24</time><span class="work-role">講師</span>
     <h3>静岡市内の自治体 生成AI活用講座 Day2（地域住民向け）</h3>
     <p>静岡市。全2回の後半。「学び続けたい」気持ちがある人は何歳でも最前線に立てる、と実感した回。</p>
   </div>
@@ -587,7 +612,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/relay.jpg" alt="日本全国AI列島縦断リレー「地方在住AIトップランナーによる案件獲得ルート解説」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.1.21</time>
+    <time class="work-date">2026.1.21</time><span class="work-role">登壇</span>
     <h3>日本全国AI列島縦断リレー「地方在住AIトップランナーによる案件獲得ルート解説」</h3>
     <p>SHIFT AI プレミアムウェビナー。静岡県代表として登壇し、地方在住のまま案件を獲得するルートを自身の事例で解説。</p>
   </div>
@@ -595,7 +620,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/komagoe-1.jpg" alt="静岡市内の自治体 生成AI活用講座 Day1（地域住民向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2026.1.17</time>
+    <time class="work-date">2026.1.17</time><span class="work-role">講師</span>
     <h3>静岡市内の自治体 生成AI活用講座 Day1（地域住民向け）</h3>
     <p>静岡市。定員20名に対して40名を超える応募があり抽選に。30代から70代まで幅広い世代が受講。</p>
   </div>
@@ -603,7 +628,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nagoya-1221.jpg" alt="SHIFT AI 名古屋オフ会「Gemini 3.0×Canvaで“売れる”を科学する」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.12.21</time>
+    <time class="work-date">2025.12.21</time><span class="work-role">講師</span>
     <h3>SHIFT AI 名古屋オフ会「Gemini 3.0×Canvaで“売れる”を科学する」</h3>
     <p>名古屋市。マーケティング要素を含めた、成果につながるチラシを爆速で作るワークショップに登壇。</p>
   </div>
@@ -611,7 +636,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/agri.jpg" alt="農業×AIワークショップのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.12.6</time>
+    <time class="work-date">2025.12.6</time><span class="work-role">講師</span>
     <h3>農業×AIワークショップ</h3>
     <p>愛知県西尾市（主催 SHIFT AI、後援 西尾市・JA西三河）。農家の方向けに、スマホで今日から使える生成AIを体験。西尾市長も見学に。地元紙に掲載、プレスリリースを発行。</p>
   </div>
@@ -619,7 +644,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/kambara-2.jpg" alt="静岡県内の自治体 生成AI講座 Day2（ビジネスパーソン向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.11.21</time>
+    <time class="work-date">2025.11.21</time><span class="work-role">講師</span>
     <h3>静岡県内の自治体 生成AI講座 Day2（ビジネスパーソン向け）</h3>
     <p>静岡県内。全2回の後半。画像生成の実演では驚きと笑いが起こる、前のめりの回に。</p>
   </div>
@@ -627,7 +652,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/kambara-1.jpg" alt="静岡県内の自治体 生成AI講座 Day1（ビジネスパーソン向け）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.11.7</time>
+    <time class="work-date">2025.11.7</time><span class="work-role">講師</span>
     <h3>静岡県内の自治体 生成AI講座 Day1（ビジネスパーソン向け）</h3>
     <p>静岡県内。「生成AIは初めて」という初心者が中心。真剣な眼差しと「わかった！」の表情が印象的な回。</p>
   </div>
@@ -635,7 +660,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/tokyo-1004.jpg" alt="SHIFT AI 東京リアルイベント「AI爆速・資料作成ワークショップ」サポート講師のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.10.4</time>
+    <time class="work-date">2025.10.4</time><span class="work-role">サポート講師</span>
     <h3>SHIFT AI 東京リアルイベント「AI爆速・資料作成ワークショップ」サポート講師</h3>
     <p>東京。約90名の会員が来場した資料作成ワークショップで、サポート講師を担当。</p>
   </div>
@@ -643,7 +668,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/lt-0829.jpg" alt="SHIFT AI LT大会「自作アプリで業務改善！」モデレーターのサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.8.29</time>
+    <time class="work-date">2025.8.29</time><span class="work-role">モデレーター</span>
     <h3>SHIFT AI LT大会「自作アプリで業務改善！」モデレーター</h3>
     <p>SHIFT AI ウェビナー。合宿参加メンバーの試行錯誤と実践事例を公開するLT大会のモデレーターを担当。</p>
   </div>
@@ -651,7 +676,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/yurutto-0823.jpg" alt="第2回 ゆるっと作業会 in 静岡のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.8.23</time>
+    <time class="work-date">2025.8.23</time><span class="work-role">運営・講師</span>
     <h3>第2回 ゆるっと作業会 in 静岡</h3>
     <p>静岡市。自己紹介から各種AIツール体験・交流まで、あっという間の3時間。</p>
   </div>
@@ -659,7 +684,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/lt-0729.jpg" alt="SHIFT AI LT大会「AIを日常に取り入れるコツと使い方」講評役のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.7.29</time>
+    <time class="work-date">2025.7.29</time><span class="work-role">講評</span>
     <h3>SHIFT AI LT大会「AIを日常に取り入れるコツと使い方」講評役</h3>
     <p>SHIFT AI ウェビナー。4人のユーザーが語る実践事例の講評役として登壇。</p>
   </div>
@@ -667,7 +692,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/rewrite.jpg" alt="雷ウェビナー「0から学ぶ クライアントに信頼される文章編集術」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.7.24</time>
+    <time class="work-date">2025.7.24</time><span class="work-role">講師</span>
     <h3>雷ウェビナー「0から学ぶ クライアントに信頼される文章編集術」</h3>
     <p>SHIFT AI ウェビナー。AIライターは「リライト力」で差がつく。AIで書いた記事の編集術を解説。</p>
   </div>
@@ -675,7 +700,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/fujieda-brain.jpg" alt="静岡脳科学研究会「生成AIってなに？」勉強会のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.7.12</time>
+    <time class="work-date">2025.7.12</time><span class="work-role">主催・講師</span>
     <h3>静岡脳科学研究会「生成AIってなに？」勉強会</h3>
     <p>静岡県藤枝市（AIP Dimensions主催・無料）。生成AIとは何か、日常で使える活用術、注意点までを90分で。</p>
   </div>
@@ -683,7 +708,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/camp-0628.jpg" alt="業務効率化合宿「ChatGPTを“頼れる部下”に育てる」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.6.28</time>
+    <time class="work-date">2025.6.28</time><span class="work-role">講師</span>
     <h3>業務効率化合宿「ChatGPTを“頼れる部下”に育てる」</h3>
     <p>SHIFT AI オンライン合宿。明日から使える業務効率化を、中級者向けの実践型で。</p>
   </div>
@@ -691,7 +716,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/nagoya-0622.jpg" alt="SHIFT AI 名古屋 AIライティング勉強会のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.6.22</time>
+    <time class="work-date">2025.6.22</time><span class="work-role">登壇</span>
     <h3>SHIFT AI 名古屋 AIライティング勉強会</h3>
     <p>名古屋市。雷ツールで差をつける、会員限定のライティング勉強会。</p>
   </div>
@@ -699,7 +724,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/seo-camp.jpg" alt="AIライター向け SEO案件獲得合宿のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.6.21</time>
+    <time class="work-date">2025.6.21</time><span class="work-role">講師</span>
     <h3>AIライター向け SEO案件獲得合宿</h3>
     <p>SHIFT AI オンライン合宿。「SEOってなに？」を完全初心者にも分かりやすく。記事作成からポートフォリオ作成までを実演。</p>
   </div>
@@ -707,7 +732,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/qa-0619.jpg" alt="AIライター質問回答会（第2回）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.6.19</time>
+    <time class="work-date">2025.6.19</time><span class="work-role">講師</span>
     <h3>AIライター質問回答会（第2回）</h3>
     <p>SHIFT AI ウェビナー。平日22時からの1時間に約200名が参加。初心者AIライターのつまずきポイントに回答。</p>
   </div>
@@ -715,7 +740,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/yurutto-0608.jpg" alt="ゆるっと作業会 in 静岡（静岡初開催）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.6.8</time>
+    <time class="work-date">2025.6.8</time><span class="work-role">講師</span>
     <h3>ゆるっと作業会 in 静岡（静岡初開催）</h3>
     <p>静岡市。講師として参加。各種AIツールをみんなで触りながら学びをシェア。</p>
   </div>
@@ -723,7 +748,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/writer-0516.jpg" alt="AIライター必見「読まれる記事の構成術」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.5.16</time>
+    <time class="work-date">2025.5.16</time><span class="work-role">講師</span>
     <h3>AIライター必見「読まれる記事の構成術」</h3>
     <p>SHIFT AI ウェビナー。初の90分枠。月間300万PV超メディアのプロライターとして、読まれる見出し構成を添削つきで解説。</p>
   </div>
@@ -731,7 +756,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/qa-0515.jpg" alt="雷AIライター質問回答会（第1回）のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.5.15</time>
+    <time class="work-date">2025.5.15</time><span class="work-role">講師</span>
     <h3>雷AIライター質問回答会（第1回）</h3>
     <p>SHIFT AI ウェビナー。Web業界を知り尽くす講師陣への質問にその場で回答。平日夜に160名が参加。</p>
   </div>
@@ -739,7 +764,7 @@
 <li class="work">
   <img class="work-thumb" src="assets/images/x/lt-0224.jpg" alt="SHIFT AI 第1回LT大会「先人のAI活用失敗談から学ぶ成功事例」のサムネイル" loading="lazy">
   <div class="work-body">
-    <time class="work-date">2025.2.24</time>
+    <time class="work-date">2025.2.24</time><span class="work-role">登壇</span>
     <h3>SHIFT AI 第1回LT大会「先人のAI活用失敗談から学ぶ成功事例」</h3>
     <p>SHIFT AI ウェビナー。初登壇。会員として自身のAI活用の失敗談と成功事例を共有。</p>
   </div>
