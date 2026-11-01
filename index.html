@@ -160,6 +160,18 @@
     .note { margin: 12px 0 0; font-size: 13px; color: var(--caption); }
     .value { margin-top: 56px; padding: 28px 32px; background: var(--panel-card); border-left: 6px solid var(--orange); border-radius: var(--radius-sm) var(--radius) var(--radius) var(--radius-sm); }
     .value .value-heading { margin: 0 0 12px; font-size: 20px; }
+    .value-lead { margin: 0 0 16px !important; font-weight: 700; }
+    .reasons { margin: 0; padding: 0; list-style: none; counter-reset: reason; display: grid; gap: 12px; }
+    .reasons li { counter-increment: reason; display: grid; grid-template-columns: 32px 1fr; column-gap: 12px; }
+    .reasons li::before { content: counter(reason); grid-row: 1 / span 2; width: 28px; height: 28px; border-radius: 50%; background: var(--orange); color: var(--white); font-weight: 700; font-size: 14px; display: grid; place-items: center; margin-top: 2px; }
+    .reasons b { font-size: 16px; }
+    .reasons p { margin: 4px 0 0 !important; font-size: 14.5px; line-height: 1.75; color: var(--caption); }
+    .voices { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--line); }
+    .voices-title { margin: 0 0 8px !important; font-size: 13px; font-weight: 700; color: var(--blue-text); letter-spacing: .06em; }
+    .voices ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .voices li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 14.5px; }
+    .voices q { quotes: "「" "」"; font-weight: 700; }
+    .voices span { font-size: 12px; color: var(--caption); }
     .value p { margin: 0 0 10px; line-height: 1.9; }
     .value p:last-child { margin-bottom: 0; }
     @media (max-width: 640px) { .value { padding: 22px 20px; } }
@@ -537,9 +549,21 @@
         </div>
 
         <div class="value">
-          <h3 class="sub-heading value-heading">私が提供できる価値</h3>
-          <p>生成AIに対する不安を解消し、参加者全員が「自分にも使える」と実感できる講座を提供します。</p>
-          <p>単発で終わらず、講座後も日常生活や仕事の中で活用できる状態を目指して、みなさまが少しずつ自走できるAI活用の土台づくりを支援させていただきます。</p>
+          <h3 class="sub-heading value-heading">選ばれる理由</h3>
+          <p class="value-lead">生成AIに対する不安を解消し、参加者全員が「自分にも使える」と実感できる講座を提供します。</p>
+          <ol class="reasons">
+            <li><b>専門用語を使わず、背景から噛み砕いて伝える</b><p>「なぜそうなるのか」という背景から話すので、生成AIが初めての方でも置いていかれません。難しいことを、分かりやすく。</p></li>
+            <li><b>相手の現場に合わせて内容を組み立てる</b><p>農家の方には販促や日々の記録、高校生には仕組みと注意点、ビジネスパーソンには自分の業務での使い方。同じ講座を使い回さず、その場の参加者に合わせます。</p></li>
+            <li><b>講座のあとも使い続けられる状態をつくる</b><p>単発で終わらせず、講座後も日常生活や仕事の中で活用できるように。みなさまが少しずつ自走できるAI活用の土台づくりを支援します。</p></li>
+          </ol>
+          <div class="voices">
+            <p class="voices-title">受講者の声</p>
+            <ul>
+              <li><q>次は個別でやってほしい</q><span>60代・女性</span></li>
+              <li><q>他のツールも使ってみたい</q><span>50代・女性</span></li>
+              <li><q>AIのセキュリティやリテラシーの部分がすごく腹落ちした</q><span>受講後のアンケートより</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
