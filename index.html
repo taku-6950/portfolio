@@ -94,14 +94,16 @@
     }
 
     /* ヒーロー */
-    .hero { position: relative; background: var(--navy); color: var(--white); }
-    .hero-inner { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
+    .hero { position: relative; overflow: hidden; background: var(--navy); color: var(--white); }
+    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 80% at 92% 50%, rgba(250,125,15,.22), transparent 70%),
+                  radial-gradient(ellipse 50% 70% at 70% 100%, rgba(30,127,224,.20), transparent 70%); }
+    .hero-inner { position: relative; padding-top: 104px; padding-bottom: 112px; }
+    .hero-text { max-width: 760px; }
     .hero h1 { font-size: clamp(32px, 6vw, 56px); letter-spacing: .02em; }
     .hero-sub { margin: 20px 0 4px; font-weight: 700; }
     .hero-lead { margin: 0 0 36px; color: rgba(255,255,255,.8); }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; }
-    .hero-logo { display: block; width: 100%; max-width: 380px; margin-left: auto; border-radius: 28px; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
-    .hero-photo { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 15%; border-radius: 50%; border: 4px solid rgba(255,255,255,.15); }
     .gradient-bar { height: 4px; background: var(--gradient); }
     .hero .gradient-bar { position: absolute; left: 0; right: 0; bottom: 0; }
 
@@ -199,9 +201,7 @@
       .site-nav .btn { margin-top: 12px; width: 100%; }
       .nav-open .site-nav { display: flex; }
 
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; padding-bottom: 64px; }
-      .hero-photo { order: -1; width: 160px; }
-      .hero-logo { order: -1; max-width: 220px; margin-left: 0; }
+      .hero-inner { padding-top: 56px; padding-bottom: 64px; }
       .hero-cta .btn { width: 100%; }
       .section { padding: 64px 0; }
       .profile { grid-template-columns: 1fr; }
@@ -286,7 +286,6 @@
             <a href="#works" class="btn btn-ghost">実績を見る</a>
           </div>
         </div>
-        <img class="hero-logo" src="assets/images/aip-logo.png" alt="AIP Dimensions" width="800" height="700">
       </div>
       <div class="gradient-bar" aria-hidden="true"></div>
     </section>
