@@ -17,10 +17,7 @@
 
   <link rel="icon" type="image/png" href="assets/images/logo-chip.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" imagesrcset="assets/images/hero/hero-480.webp 480w, assets/images/hero/hero-800.webp 800w, assets/images/hero/hero-1200.webp 1200w" imagesizes="(max-width: 640px) calc(100vw - 32px), (max-width: 960px) 300px, 400px" type="image/webp" fetchpriority="high" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" /></noscript>
 
   <style>
     /* AIP Dimensions ブランドガイドライン v1.0 準拠 */
@@ -39,7 +36,7 @@
       --gradient: linear-gradient(90deg, var(--orange), var(--blue));
       --radius: 20px;
       --radius-sm: 10px;
-      --font: 'Noto Sans JP', 'Noto Sans CJK JP', -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", "Meiryo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -587,8 +584,8 @@
         <div class="quals-row">
           <span class="quals-label">保有資格</span>
           <ul class="quals-list">
-            <li><button type="button" class="cert-open" data-src="assets/images/certs/passport.jpg" data-label="生成AIパスポート 合格証明書（生成AI活用普及協会・2025年7月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/passport.jpg)" aria-hidden="true"></span><span class="cert-text"><b>生成AIパスポート</b><small>生成AI活用普及協会（GUGA）・2025年7月取得</small></span></button></li>
-            <li><button type="button" class="cert-open" data-src="assets/images/certs/gkentei.jpg" data-label="G検定 合格証書（日本ディープラーニング協会・2026年1月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/gkentei.jpg)" aria-hidden="true"></span><span class="cert-text"><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><small>日本ディープラーニング協会（JDLA）・2026年1月取得</small></span></button></li>
+            <li><button type="button" class="cert-open" data-src="assets/images/certs/passport.jpg" data-label="生成AIパスポート 合格証明書（生成AI活用普及協会・2025年7月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/passport-thumb.webp)" aria-hidden="true"></span><span class="cert-text"><b>生成AIパスポート</b><small>生成AI活用普及協会（GUGA）・2025年7月取得</small></span></button></li>
+            <li><button type="button" class="cert-open" data-src="assets/images/certs/gkentei.jpg" data-label="G検定 合格証書（日本ディープラーニング協会・2026年1月）"><span class="cert-thumb" style="background-image:url(assets/images/certs/gkentei-thumb.webp)" aria-hidden="true"></span><span class="cert-text"><b>G検定（JDLA Deep Learning for GENERAL 2026#1）</b><small>日本ディープラーニング協会（JDLA）・2026年1月取得</small></span></button></li>
           </ul>
           <p class="quals-hint">押すと合格証を表示します</p>
         </div>
@@ -625,7 +622,7 @@
 
         <ul class="works is-collapsed" id="works-list">
 <li class="work">
-  <img class="work-thumb" src="assets/images/works/elite.jpg" alt="SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）のサムネイル" loading="lazy">
+  <picture><source type="image/webp" srcset="assets/images/works/elite-640.webp 640w, assets/images/works/elite-1200.webp 1200w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 960px) 50vw, 360px"><img class="work-thumb" src="assets/images/works/elite.jpg" alt="SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）のサムネイル" loading="lazy"></picture>
   <div class="work-body">
     <time class="work-date">2026.10.26</time><span class="work-role">メイン講師・サブ講師</span>
     <h3>SHIFT AI ELITE「AIエージェント実践講座」メイン講師・サブ講師（全16回）</h3>
@@ -1110,8 +1107,6 @@
   </dialog>
 
   <script>
-    // Webフォントは表示を妨げないよう、ページ読み込み完了後に取得する
-    window.addEventListener('load', () => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap'; document.head.appendChild(l); });
     // スマホのメニュー開閉
     const toggle = document.querySelector('.menu-toggle');
     toggle.addEventListener('click', () => {
