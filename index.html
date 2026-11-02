@@ -20,8 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" imagesrcset="assets/images/hero/hero-480.webp 480w, assets/images/hero/hero-800.webp 800w, assets/images/hero/hero-1200.webp 1200w" imagesizes="(max-width: 640px) calc(100vw - 32px), (max-width: 960px) 300px, 400px" type="image/webp" fetchpriority="high" />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" /></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" /></noscript>
 
   <style>
     /* AIP Dimensions ブランドガイドライン v1.0 準拠 */
@@ -40,7 +39,7 @@
       --gradient: linear-gradient(90deg, var(--orange), var(--blue));
       --radius: 20px;
       --radius-sm: 10px;
-      --font: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      --font: 'Noto Sans JP', 'Noto Sans CJK JP', -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -1111,6 +1110,8 @@
   </dialog>
 
   <script>
+    // Webフォントは表示を妨げないよう、ページ読み込み完了後に取得する
+    window.addEventListener('load', () => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap'; document.head.appendChild(l); });
     // スマホのメニュー開閉
     const toggle = document.querySelector('.menu-toggle');
     toggle.addEventListener('click', () => {
